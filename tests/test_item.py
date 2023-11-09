@@ -25,8 +25,16 @@ def test_instantiate_from_csv():
     assert item1.price == '100'
     assert item1.quantity == '1'
 
+
 def test_string_to_number():
     assert Item.string_to_number('100') == 100
     assert Item.string_to_number('150000.0') == 150000
     assert Item.string_to_number('250.50') == 250
 
+
+def test_str():
+    assert item_for_test.__str__() == "Television"
+
+
+def test_repr():
+    assert item_for_test.__repr__() == "Item('Television', 150000.0, 5)" #не могу понять почему float а не int
