@@ -33,8 +33,8 @@ def test_string_to_number():
 
 
 def test_str():
-    assert item_for_test.__str__() == "Television"
+    assert str(item_for_test) == "Television"
 
 
 def test_repr():
-    assert item_for_test.__repr__() == "Item('Television', 150000.0, 5)" #не могу понять почему float а не int
+    assert repr(item_for_test) == "Item('Television', 150000.0, 5)" #не могу понять почему float а не int
