@@ -2,21 +2,28 @@
 import pytest
 from src.item import Item
 
-item_for_test = Item("Television", 150000, 5)
-item_for_test2 = Item("Refrigerator", 50000, 10)
+
+@pytest.fixture()
+def item_for_test():
+    return Item("Television", 150000, 5)
 
 
-def test_calculate_total_price():
+@pytest.fixture()
+def item_for_test2():
+    return Item("Refrigerator", 50000, 10)
+
+
+def test_calculate_total_price(item_for_test):
     assert item_for_test.calculate_total_price() == 750000
 
 
-def test_apply_discount():
+def test_apply_discount(item_for_test):
     assert item_for_test.apply_discount() == 150000
 
 
-def test_name():
+def test_name(item_for_test2):
     item_for_test2.name = "Refrigerator"
-    assert item_for_test2.__repr__() == "Item('Refrigerat', 50000, 10)"
+    assert repr(item_for_test2) == "Item('Refrigerat', 50000, 10)"
 
 
 def test_instantiate_from_csv():
@@ -32,9 +39,9 @@ def test_string_to_number():
     assert Item.string_to_number('250.50') == 250
 
 
-def test_str():
+def test_str(item_for_test):
     assert str(item_for_test) == "Television"
 
 
-def test_repr():
-    assert repr(item_for_test) == "Item('Television', 150000.0, 5)" #не могу понять почему float а не int
+def test_repr(item_for_test):
+    assert repr(item_for_test) == "Item('Television', 150000, 5)"  # не могу понять почему float а не int
