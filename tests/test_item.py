@@ -44,4 +44,4 @@ def test_str(item_for_test):
 
 
 def test_repr(item_for_test):
-    assert repr(item_for_test) == "Item('Television', 150000, 5)"  # не могу понять почему float а не int
+    assert repr(item_for_test) == "Item('Television', 150000, 5)"
