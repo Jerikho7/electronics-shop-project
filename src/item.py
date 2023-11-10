@@ -21,11 +21,11 @@ class Item:
         self.quantity = quantity
         self.all.append(self)
 
-    def __str__(self):
-        return f"товар {self.__name}, цена за единицу {self.price}, количество {self.quantity}"
-
     def __repr__(self):
-        return f'Item(\'{self.__name}\', {self.price}, {self.quantity})'
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f'{self.__name}'
 
     def calculate_total_price(self):
         """
@@ -66,9 +66,5 @@ class Item:
                 cls(name, price, quantity)
 
     @staticmethod
-    def string_to_number(str):
-        return int(float(str))
-
-
-
-
+    def string_to_number(str_number):
+        return int(float(str_number))
