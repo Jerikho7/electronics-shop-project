@@ -27,4 +27,3 @@ def test_number_sim(phone_for_test):
 def test_match(phone_for_test):
     with pytest.raises(ValueError, match=r"Количество физических SIM-карт должно быть целым числом больше нуля"):
         phone_for_test.number_sim = 0
-        test_number_sim(phone_for_test)
